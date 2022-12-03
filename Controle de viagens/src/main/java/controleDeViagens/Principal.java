@@ -2,85 +2,77 @@ package controleDeViagens;
 
 import java.util.Scanner;
 
+
 public class Principal {
+	private static final controleDeViagens.Cadastro cliente1 = null;
+
 	public static void main (String [] args) {
 		
 		Scanner in = new Scanner(System.in);
 		
 		String destino;
-		int tempoDeEstadia = 3;
 		int acompanhantes;
 		PacoteViagem pacotes = new PacoteViagem();
 		
-		StandardClient cliente1 = new StandardClient();
-		BlueClient cliente2 = new BlueClient();
-		MasterClient cliente3 = new MasterClient();
+		StandardClient cliente1 = new StandardClient("Maria Clara", "123.456.789.22", "Feminino", "18", "11 46545-5468", "mariaclara@gmail.com", "StandardClient");
+		BlueClient cliente2 = new BlueClient("Roberto Marinho", "987.654.352.44", "Masculino", "50", "11 5646-6561", "robertomarinho@gmail.com", "BlueClient");
+		MasterClient cliente3 = new MasterClient("Abel Ferreira", "456.123.789.66", "Masculino", "42", "11 9874-4562", "abelferreira@gmail.com", "MasterClient");
 		
-		
-		
-		//inserindo dados do cliente 1
-		cliente1.setNome("Maria Clara");
-		cliente1.setCpf("123.456.789.22");
-		cliente1.setIdade("18");
-		cliente1.setSexo("Feminino");
-		cliente1.setEmail("mariaclara@gmail.com");
-		cliente1.setTelefone("11 46545-5468");
-	    cliente1.setClasseCliente("StandardClient");
-	    
-		//inserindo dados do cliente 2
-		cliente2.setNome("Roberto Marinho");
-		cliente2.setCpf("987.654.352.44");
-		cliente2.setIdade("50");
-		cliente2.setSexo("Masculino");
-		cliente2.setEmail("robertomarinho@gmail.com");
-		cliente2.setTelefone("11 5646-6561");
-		cliente2.setClasseCliente("BlueClient");
-		
-		//inserindo dados do cliente 3
-		cliente3.setNome("Abel Ferreira");
-		cliente3.setCpf("456.123.789.66");
-		cliente3.setIdade("42");
-		cliente3.setSexo("Masculino");
-		cliente3.setEmail("abelferreira@gmail.com");
-		cliente3.setTelefone("11 9874-4562");
-		cliente3.setClasseCliente("MasterClient");
+		//Vetor para as classes de desconto.
+		Cadastro [] classes = new Cadastro[3];
 
-		System.out.println("Olá ! Somos a empresa Travel Agency, nesse mês de Black Friday" + "\nestamos com pacotes em promoção. Vamos confirmar seus dados e" + "\nseguiremos para a escolha dos pacotes");
+		//Colocando as classes em cada posiÃ§Ã£o.
+		classes[0]= cliente1;
+		classes[1]=cliente2;
+		classes[2]=cliente3;
+		
+		System.out.println("Olï¿½ ! Somos a empresa Travel Agency, nesse mï¿½s de Black Friday" + "\nestamos com pacotes em promoï¿½ï¿½o. Vamos confirmar seus dados e" + "\nseguiremos para a escolha dos pacotes");
         System.out.println();
-			System.out.println("Cliente: " + cliente1.getNome());
-			System.out.println("CPF: " + cliente1.getCpf());
-			System.out.println("Idade: " + cliente1.getIdade());
-			System.out.println("Sexo: " + cliente1.getSexo());
-			System.out.println("E-mail: " + cliente1.getEmail());
-			System.out.println("Telefone: " + cliente1.getTelefone());
-			System.out.println("Classe de cliente: " + cliente1.getClasseCliente());
+        
+        for(int x = 0; x < 3; x++) {
+        	System.out.println("Cliente: " + classes[x].getNome());
+			System.out.println("CPF: " + classes[x].getCpf());
+			System.out.println("Idade: " + classes[x].getIdade());
+			System.out.println("Sexo: " + classes[x].getSexo());
+			System.out.println("E-mail: " + classes[x].getEmail());
+			System.out.println("Telefone: " + classes[x].getTelefone());
+			System.out.println("Classe: " + classes[x].getClasseCliente());
 			System.out.println();
 			
 			int escolha = 1;
-			for (int x=0; x < escolha; x++) {
-				System.out.println("Seus dados estão certos ? Digite 1 para sim ou 2 para não ");
+			for (int y=0; y < escolha; y++) {
+				System.out.println("Seus dados estï¿½o certos ? Digite 1 para sim ou 2 para nï¿½o ");
 				
 				if(in.nextLine().equals("1")) {
 					System.out.println();
-					System.out.println("Digite o pacote que você quer: " + "\nPacote 1 - com destino a Santa Catarina" + "\nPacote 2 - com destino a Fortaleza" + "\nPacote 3 - com destino a ");
+					System.out.println("Digite o pacote que vocï¿½ quer: " + "\nPacote 1 - com destino a Santa Catarina" + "\nPacote 2 - com destino a Fortaleza" + "\nPacote 3 - com destino a ");
 					destino = in.nextLine();
-					if(destino.equals("Pacote 1 - ")) {
-						System.out.println();
-						System.out.println("Os dias do pacote são fixos então você terá 3 dias a partir do dia do seu checkin");
-						System.out.println("Digite a data de check in (apenas números)");
+					
+					
+					if(destino.equals("Pacote 1")) {
+						System.out.println("\nOs dias do pacote sï¿½o fixos entï¿½o vocï¿½ terï¿½ 3 dias a partir do dia do seu checkin");
+						System.out.println("Digite a data de check in (apenas nï¿½meros)");
 						int dataDeCheckin = in.nextInt();
-						System.out.println("Digite a quantidade de acompanhantes (Você pode escolher no máximo 3)");
+						
+						in.nextLine();
+						System.out.println("Quantas pessoas deseja levar? VocÃª pode levar atÃ© 3 acompanhantes ");
+//						in.nextInt();
 						acompanhantes = in.nextInt();
-						System.out.println("Pacote: " + destino + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + (dataDeCheckin+2) + "\n Valor do pacote: " + pacotes.pacote1(tempoDeEstadia));
+						
+						int checkout = dataDeCheckin + 2;
+						
+						System.out.println("Segue abaixo os dados da conta");
+					    System.out.println();
+					    System.out.println("Pacote 1 com destino a Salvador " + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + checkout + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: " + pacotes.pacote1(3, 600.90, acompanhantes) );
+					    System.out.println("Valor com desconto de acordo com sua classe: " + StandardClient.desconto2PorCento(pacotes.pacote1(3, 100, acompanhantes)));
+					    System.out.println("****************************************************************");
+						System.out.println();
 					}
 				}else {
 					System.out.println("Contate a empresa para atualizar seus dados");
 				}
-				
-			
-			
-			
-		
+        	
+        }
 		
 		
 	}
