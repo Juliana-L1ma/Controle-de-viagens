@@ -68,6 +68,25 @@ public class Principal {
 					    System.out.println("****************************************************************");
 						System.out.println();
 					}
+					if(destino.equals("Pacote 2")) {
+						System.out.println("\nOs dias do pacote s�o fixos ent�o voc� ter� 3 dias a partir do dia do seu checkin");
+						System.out.println("Digite a data de check in (apenas n�meros)");
+						int dataDeCheckin = in.nextInt();
+						
+						in.nextLine();
+						System.out.println("Quantas pessoas deseja levar? Você pode levar até 3 acompanhantes ");
+//						in.nextInt();
+						acompanhantes = in.nextInt();
+						
+						int checkout = dataDeCheckin + 2;
+						
+						System.out.println("Segue abaixo os dados da conta");
+					    System.out.println();
+					    System.out.println("Pacote 2 com destino a México " + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + checkout + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: " + pacotes.pacote1(3, 600.90, acompanhantes) );
+					    System.out.println("Valor com desconto de acordo com sua classe: " + StandardClient.desconto2PorCento(pacotes.pacote1(3, 100, acompanhantes)));
+					    System.out.println("****************************************************************");
+						System.out.println();
+					}
 				}else {
 					System.out.println("Contate a empresa para atualizar seus dados");
 				}
