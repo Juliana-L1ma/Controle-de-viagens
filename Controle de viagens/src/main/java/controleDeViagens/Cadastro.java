@@ -10,6 +10,16 @@ public class Cadastro {
 	private String email;
 	private String classeCliente;
 	
+    public Cadastro (String nome, String cpf, String sexo, String idade, String telefone, String email, String classeCliente) {
+    	this.nome = nome;
+		this.cpf = cpf;
+		this.sexo = sexo;
+		this.idade = idade;
+		this.telefone = telefone;
+		this.email = email;
+		this.classeCliente = classeCliente;
+	}
+
 	public String getClasseCliente() {
 		return classeCliente;
 	}
