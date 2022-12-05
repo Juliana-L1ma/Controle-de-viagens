@@ -46,45 +46,40 @@ public class Principal {
 				
 				if(in.nextLine().equals("1")) {
 					System.out.println();
-					System.out.println("Digite o pacote que você quer: " + "\nPacote 1 - com destino a Santa Catarina - valor = R$ 600,90" + "\nPacote 2 - com destino a Fortaleza - valor = R$ 1600,90" + "\nPacote 3 - com destino a Rio de Janeiro - valor = R$ 500,00" + "\nDigite 'Pacote' e o número dele");
+					System.out.println("Digite o pacote que você quer: " + "\nPacote 1 - com destino a Santa Catarina - valor = R$ 600,90 (preço por pessoa) dias 15 a 17 de dezembro 2022" + "\nPacote 2 - com destino a Fortaleza - valor = R$ 1600,90 (preço por pessoa) dias 23 a 25 dezembro 2022" + "\nPacote 3 - com destino a Rio de Janeiro - valor = R$ 500,00 (preço por pessoa) dias 10 a 12 de janeiro de 2023" + "\nDigite 'Pacote' e o número dele");
 					destino = in.nextLine();
 					
 					
 					if(destino.equals("Pacote 1")) {
-						System.out.println("\nOs dias do pacote são fixos ent�o você terá 3 dias a partir do dia do seu checkin");
-						System.out.println("Digite a data de check in (apenas n�meros, dia e mês.)");
-						int dataDeCheckin = in.nextInt();
-						
-						in.nextLine();
 						System.out.println("Quantas pessoas deseja levar? Você pode levar até 3 acompanhantes ");
 //						in.nextInt();
 						acompanhantes = in.nextInt();
 						
-						int checkout = dataDeCheckin + 2;
-						
-						System.out.println("Escolha a sua classe: ");
+						System.out.println("Confirme a sua classe: ");
 						System.out.println("Digite 1 para Standard | 2 para Blue | 3 para Master");
 						int classe = in.nextInt();
 						
 						System.out.println("Digite a forma de pagamento: Cartão ou Boleto");
-						int pagamento = in.nextInt();
-						System.out.println();
+						in.nextLine();
+						String pagamento = in.nextLine();
 						
+						System.out.println("");
 						System.out.println("Segue abaixo os dados da viagem");
-					    System.out.println();
-					    System.out.println("Pacote 1 com destino a Santa Catarina " + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + checkout + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: " + pacotes.pacote1(3, 600.90, acompanhantes) );
+						System.out.println("");
+						
+					    System.out.printf("Pacote 1 com destino a Santa Catarina " + "\nCheckin: 15 de dezembro de 2022 " + "\nCheckout: 17 de dezembro de 2022" + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: %.2f %n", pacotes.pacote1(3, 600.90, acompanhantes) );
 					    
-					    System.out.println("Detalhes de pagamento:");
+					    System.out.println("Detalhes de pagamento");
 					    System.out.println("Forma de pagamento: " + pagamento);
 					    
 					    if(classe == 1) {
-							System.out.println("Valor do pacote com desconto: " + StandardClient.desconto2PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", StandardClient.desconto2PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
 						}
 					    if(classe == 2) {
-							System.out.println("Valor do pacote com desconto: " + BlueClient.desconto5PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", BlueClient.desconto5PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
 						}
 					    if(classe == 3) {
-							System.out.println("Valor do pacote com desconto: " + MasterClient.desconto10PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", MasterClient.desconto10PorCento(pacotes.pacote1(3, 600.90, acompanhantes)));
 						}
 					    
 					    
@@ -92,79 +87,70 @@ public class Principal {
 						System.out.println();
 					}
 					if(destino.equals("Pacote 2")) {
-						System.out.println("\nOs dias do pacote s�o fixos ent�o voc� ter� 3 dias a partir do dia do seu checkin");
-						System.out.println("Digite a data de check in (apenas n�meros)");
-						int dataDeCheckin = in.nextInt();
 						
-						in.nextLine();
 						System.out.println("Quantas pessoas deseja levar? Você pode levar até 3 acompanhantes ");
 //						in.nextInt();
 						acompanhantes = in.nextInt();
 						
-						int checkout = dataDeCheckin + 2;
 						
-						System.out.println("Escolha a sua classe: ");
+						System.out.println("Confirme a sua classe: ");
 						System.out.println("Digite 1 para Standard | 2 para Blue | 3 para Master");
 						int classe = in.nextInt();
 						
 						System.out.println("Digite a forma de pagamento: Cartão ou Boleto");
-						int pagamento = in.nextInt();
+						in.nextLine();
+						String pagamento = in.nextLine();
+						
 						System.out.println();
-					
+					    in.nextLine();
 						System.out.println("Segue abaixo os dados da viagem");
 					    System.out.println();
-					    System.out.println("Pacote 2 com destino a Fortaleza " + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + checkout + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: " + pacotes.pacote1(3, 1600.90, acompanhantes) );
+					    System.out.printf("Pacote 2 com destino a Fortaleza " + "\nCheckin: 23 de dezembro de 2022"  + "\nCheckout: 25 de dezembro de 2022 " + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto:  %.2f %n", pacotes.pacote1(3, 1600.90, acompanhantes) );
 					    
-					    System.out.println("Detalhes de pagamento:");
+					    System.out.println("Detalhes de pagamento");
 					    System.out.println("Forma de pagamento: " + pagamento);
 					    if(classe == 1) {
-							System.out.println("Valor do pacote com desconto: " + StandardClient.desconto2PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", StandardClient.desconto2PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
 						}
 					    if(classe == 2) {
-							System.out.println("Valor do pacote com desconto: " + BlueClient.desconto5PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", BlueClient.desconto5PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
 						}
 					    if(classe == 3) {
-							System.out.println("Valor do pacote com desconto: " + MasterClient.desconto10PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", MasterClient.desconto10PorCento(pacotes.pacote1(3, 1600.90, acompanhantes)));
 						}
 					    
 					    System.out.println("****************************************************************");
 						System.out.println();
 					}
 					if(destino.equals("Pacote 3")) {
-						System.out.println("\nOs dias do pacote s�o fixos ent�o voc� ter� 3 dias a partir do dia do seu checkin");
-						System.out.println("Digite a data de check in (apenas n�meros)");
-						int dataDeCheckin = in.nextInt();
 						
-						in.nextLine();
 						System.out.println("Quantas pessoas deseja levar? Você pode levar até 3 acompanhantes ");
 //						in.nextInt();
 						acompanhantes = in.nextInt();
-						
-						int checkout = dataDeCheckin + 2;
 						
 						System.out.println("Escolha a sua classe: ");
 						System.out.println("Digite 1 para Standard | 2 para Blue | 3 para Master");
 						int classe = in.nextInt();
 						
 						System.out.println("Digite a forma de pagamento: Cartão ou Boleto");
-						int pagamento = in.nextInt();
-						System.out.println();
+						in.nextLine();
+						String pagamento = in.nextLine();
 						
 						System.out.println("Segue abaixo os dados da viagem");
 					    System.out.println();
-					    System.out.println("Pacote 3 com destino a Rio de Janeiro " + "\nCheckin: " + dataDeCheckin + "\nCheckout: " + checkout + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto: " + pacotes.pacote1(3, 500.00, acompanhantes) );
+					    System.out.printf("Pacote 3 com destino a Rio de Janeiro " + "\nCheckin: 10 de janeiro de 2023" +  "\nCheckout: 12 de janeiro de 2023" + "\nAcompanhantes: " + acompanhantes + "\nValor Bruto:  %.2f %n", pacotes.pacote1(3, 500.00, acompanhantes) );
 					    
-					    System.out.println("Detalhes de pagamento:");
+					    System.out.println("Detalhes de pagamento");
 					    System.out.println("Forma de pagamento: " + pagamento);
 					    
 					    if(classe == 1) {
-							System.out.println("Valor do pacote com desconto: " + StandardClient.desconto2PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n",StandardClient.desconto2PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
 						}
 					    if(classe == 2) {
-							System.out.println("Valor do pacote com desconto: " + BlueClient.desconto5PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", BlueClient.desconto5PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
 						}
 					    if(classe == 3) {
-							System.out.println("Valor do pacote com desconto: " + MasterClient.desconto10PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
+							System.out.printf("Valor do pacote com desconto:  %.2f %n", MasterClient.desconto10PorCento(pacotes.pacote1(3, 500.00, acompanhantes)));
 						}
 						
 					    System.out.println("****************************************************************");
@@ -172,6 +158,8 @@ public class Principal {
 					}
 				}else {
 					System.out.println("Contate a empresa para atualizar seus dados");
+					 System.out.println("****************************************************************");
+						System.out.println();
 				}
         	
         }
